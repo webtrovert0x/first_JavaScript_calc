@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  button {
+    width: auto;
+    height: 5vh;
+    border-radius: 20px;
+    border: transparent;
+    cursor: pointer;
+    color: red;
+  }
+
+  /* button:hover {
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+  } */
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow-x: hidden !important;
+    /* height: 90vh; */
+    background-color: gray;
+  }
+
+
+
+
+  :root {
+    --bg: #0f1724;
+    --card: #0b1220;
+    --accent: #06b6d4;
+    --muted: #9aa4b2;
+    --glass: rgba(255, 255, 255, 0.03);
+    --radius: 12px;
+  }
+
+  * {
+    box-sizing: border-box;
+    font-family: Inter, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #071022 0%, #0f2340 100%);
+    color: #e6eef7;
+    padding: 40px 20px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1100px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  header h1 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+
+  .card {
+    background: var(--card);
+    padding: 18px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--accent)
+  }
+
+  .inputs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap
+  }
+
+  .inputs input {
+    flex: 1 1 120px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--glass);
+    color: inherit;
+    outline: none;
+  }
+
+  .result {
+    min-height: 36px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: rgba(6, 182, 212, 0.06);
+    color: var(--accent);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+
+  .actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  button {
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.12), rgba(99, 102, 241, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--accent);
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    transition: all .15s ease
+  }
+
+  .footer {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  a.link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(6, 182, 212, 0.2)
+  }
+
+  @media (max-width:800px) {
+    .container {
+      max-width: 100% !important;
+    }
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px
+    }
+
+    .actions {
+      justify-content: center
+    }
+  }
+</style>
+</head>
+
+
+
+<body>
+  <div class="container" style="   align-items: center; justify-content: center; ">
+
+
+    <header>
+      <div>
+        <h1>Geometry & BMI</h1>
+        <p>Quick area calculators.</p>
+      </div>
+      <div style="text-align:right;">
+        <p style="margin:0;color:var(--muted)">made by Dev Philip:<a class="link"
+            href="https://www.linkedin.com/in/damilare-ogunwole-85126b314?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">connect
+            on linkedln</a></p>
+      </div>
+    </header>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Square</h3>
+        <div class="inputs">
+          <input type="number" id="side1" placeholder="enter side 1">
+          <input type="number" id="side2" placeholder="enter side 2">
+        </div>
+
+        <div id="showSquare" class="result">answer here</div>
+        <div class="actions">
+          <button onclick="calculatesquare ()">
+          Ans
+        </button>
+        </div>
+        
+
+      </div>
+      <div class="card">
+        <h3>
+          Circle
+        </h3>
+        <div class="inputs">
+          <input type="number" id="radius" placeholder="enter radius">
+        </div>
+
+        <div id="showCircle" class="results"> answer here</div>
+        <div class="actions">
+          <button onclick="calculatecircle ()">
+          Ans
+        </button>
+        </div>
+        
+
+      </div>
+
+
+
+
+
+
+      <div class="card">
+        <h3>Rhombus</h3>
+        <div class="inputs">
+          <input type="number" id="d1" placeholder="enter diagonal 1">
+          <input type="number" id="d2" placeholder="enter diagonal 2">
+        </div>
+
+        <div id="showRhomb" class="result"> answer here</div>
+        <div class="actions">
+          <button onclick="calculaterhombus ()">
+          Ans
+
+        </button>
+        </div>
+        
+
+      </div>
+
+      <div class="card">
+        <h3>Trapezium</h3>
+        <div class="inputs">
+          <input type="number" id="base1" placeholder="enter base">
+          <input type="number" id="base2" placeholder="enter base 2">
+          <input type="number" id="height11" placeholder="enter height">
+        </div>
+
+        <div id="showTrap" class="result">
+          answer here
+        </div>
+        <div class="actions">
+          <button onclick="calculatetrapezoid ()">
+          Ans
+        </button>
+        </div>
+        
+
+      </div>
+
+
+
+
+      <div class="card">
+        <h3>Parallelogram</h3>
+        <div class="inputs">
+          <input type="number" id="basee" placeholder="input base">
+          <input type="number" id="height3" placeholder="enter height">
+        </div>
+
+        <div id="showParallel" class="result">
+          answer here
+        </div>
+        <div class="actions">
+         <button onclick="calculateparallel ()">
+          Ans
+        </button> 
+        </div>
+        
+
+      </div>
+
+
+      <div class="card">
+        <h3>BMI</h3>
+        <div class="inputs">
+          <input type="number" id="weight" placeholder="enter weight in kg">
+          <input type="number" id="heightb" placeholder="enter height in m">
+        </div>
+
+        <div id="showBmi" class="result">answer here</div>
+        <div class="actions">
+         <button onclick="calculatebmi ()">
+          Ans
+        </button> 
+        </div>
+        
+
+      </div>
+
+
+
+
+
+      <div class="card">
+        <h3>Triangle</h3>
+        <div class="inputs">
+          <input type="number" id="base" placeholder="enter base">
+          <input type="number" id="height" placeholder="enter height ">
+        </div>
+
+        <div id="showResult" class="result">answer here</div>
+        <div class="actions">
+         <button onclick="calculatetriangle ()">
+          Ans
+        </button> 
+        </div>
+        
+
+      </div>
+
+
+
+    </div>
+
+
+    <div style="margin-top: 6vh;" class="footer">
+      <a href="add.html">go to simple calculator page</a>
+    </div>
+
+
+  </div>
+
+</body>
+
+<script src="script.js">
+
+</script>
+
+
+</html>
